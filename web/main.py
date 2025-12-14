@@ -2,7 +2,6 @@ from flask import Flask, request, redirect, url_for, render_template, session
 from os import path
 from util import *
 from config import *
-from datetime import datetime
 
 # Create and Config Flask app
 app = Flask(__name__)
