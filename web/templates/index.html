@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard MealTime</title>
+    <!-- <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+
+<div class="container">
+    <h1>Bienvenido</h1>
+    <p class="p">Dashboard para configurar los horarios de las comidas. Hora actual: {{ get_hour() }}
+    {% if error %}
+        <br><span style="color: red">{{error}}</span>
+    {% endif %}</p>
+    <br>
+    <form id="meal-dashboard-form" method="POST" action="/">
+        <label class="p" for="meal_time">Horarios de cada comida. Formato HH:MM:SS</label>
+        <textarea class="meal-time-textarea" 
+            name="meal_time" 
+            id="meal_time" 
+            placeholder="Escriba los horarios de comida"
+                >{{ get_meal_time() }}</textarea>
+                
+        <br>
+        <input type="password" name="password" id="password" placeholder="Cambiar Contraseña"><br>
+        <span class="toggle-password" onclick="togglePassword()">Mostrar Contraseña</span><br>
+        <button type="submit">Actualizar Cambios</button>
+        <button type="button" onclick="logout()">Logout</button>
+    </form>
+</div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</body>
+</html>

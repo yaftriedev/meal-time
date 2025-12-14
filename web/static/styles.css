@@ -1,0 +1,73 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+
+.container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
+}
+
+.container h1 {
+    margin-bottom: 15px;
+}
+
+.container .p {
+    margin-bottom: 10px;
+    color: #555;
+    display: block;
+}
+
+.container .err {
+    color: red;
+}
+
+.container .meal-time-textarea {
+    width: 80%;
+    min-height: 100px;
+    max-height: 150px;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.container input{
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.container .toggle-password {
+cursor: pointer;
+margin-bottom: 15px;
+font-size: 15px;
+color: #555;
+margin-bottom: 20px;
+display: inline-block;
+}
+
+.container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container button:hover {
+    background-color: #0056b3;
+}

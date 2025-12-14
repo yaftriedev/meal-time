@@ -1,0 +1,8 @@
+__pycache__/
+logs/
+*.pyc
+.env
+.vscode/
+time.txt
+web/password
+web/__pycache__/

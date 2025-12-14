@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Login</h1>
+    <p class="p">Por favor, ingresa tu contraseña.
+    {% if error %}
+        <br><span class="err">{{error}}</span>
+    {% endif %}</p>
+
+    <form method="POST" action="/login">
+        <input type="password" name="password" id="password" placeholder="Ingresa tu contraseña" required><br>
+        <span class="toggle-password" onclick="togglePassword()">Mostrar Contraseña</span><br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
