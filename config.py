@@ -37,3 +37,9 @@ not_logged_endpoints = ('login', 'status', 'loged', 'static')
 
 # Separator for meal times
 meal_time_separator = "\n"
+
+# GPIO PIN value for led
+gpio_pin_led = 1
+
+# GPIO PIN value for servo
+gpio_pin_servo = 2

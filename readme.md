@@ -19,8 +19,8 @@
 
 The system is designed to run on a microcontroller or single-board computer (for example, a Raspberry Pi).
 
-* **Light pin**: `X`
-* **Servo pin**: `Y`
+* **Light pin**: `1`
+* **Servo pin**: `2`
 
 > ⚠️ Update these values in the code according to your actual hardware setup.
 

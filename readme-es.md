@@ -19,8 +19,8 @@
 
 El sistema está pensado para funcionar con un microcontrolador (por ejemplo, Raspberry Pi o similar).
 
-* **Pin de la luz**: `X`
-* **Pin del servo**: `Y`
+* **Pin de la luz**: `1`
+* **Pin del servo**: `2`
 
 > ⚠️ Ajusta estos valores en el código según el hardware real utilizado.
 
