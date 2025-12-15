@@ -11,13 +11,12 @@
 
 <div class="container">
     <h1>Bienvenido</h1>
-    <p class="p">Dashboard para configurar los horarios de las comidas. Hora actual: {{ get_hour() }}
+    <p class="p">Dashboard para configurar los horarios de las comidas. Hora actual: <b>{{ get_hour() }}</b>
     {% if error %}
         <br><span style="color: red">{{error}}</span>
     {% endif %}</p>
-    <br>
     <form id="meal-dashboard-form" method="POST" action="/">
-        <label class="p" for="meal_time">Horarios de cada comida. Formato HH:MM:SS</label>
+        <label class="p" for="meal_time">Horarios de cada comida. Formato <b>HH:MM:SS</b></label>
         <textarea class="meal-time-textarea" 
             name="meal_time" 
             id="meal_time" 

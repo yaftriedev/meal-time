@@ -31,6 +31,10 @@ body, html {
     color: red;
 }
 
+.container #meal-dashboard-form {
+    margin-top: 25px;
+}
+
 .container .meal-time-textarea {
     width: 80%;
     min-height: 100px;

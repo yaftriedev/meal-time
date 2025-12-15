@@ -1,14 +1,40 @@
 import time
 from web.util import get_meal_time_array
 from datetime import datetime
-# from gpiozero import LED
+from gpiozero import LED, Servo
+from config import gpio_pin_led, gpio_pin_servo, dispending_time, aditional_led_time, log_file
+
+led = LED(gpio_pin_led)
+servo = Servo(gpio_pin_servo)
 
 hours = get_meal_time_array()
 actual_day = datetime.now().date()
 
+# Function to dispend
 def dispend(h):
-    with open("logs/gpio-log.txt", "a") as log_file:
-        log_file.write(f"Dispensing meal at {h} on {datetime.now()}\n")
+    with open(log_file, "w") as l:
+        l.write(f"Dispensing meal at {h} on {datetime.now()}\n")
+
+    servo.max()
+    led.on()
+
+    time.sleep(dispending_time)
+
+    servo.min()
+
+    time.sleep(aditional_led_time)
+
+    lod.off()
+
+# min -> closed
+# max -> open
+servo.min()
+
+for i in range(1, 5):
+    led.toggle()
+    time.sleep(1)
+
+led.off()
 
 while True:
     now = datetime.now()

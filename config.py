@@ -43,3 +43,9 @@ gpio_pin_led = 1
 
 # GPIO PIN value for servo
 gpio_pin_servo = 2
+
+# Time (s) dispending food
+dispending_time = 2
+
+# Aditional (s) on led time
+aditional_led_time = 3
