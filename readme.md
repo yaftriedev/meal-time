@@ -15,6 +15,27 @@
 
 ---
 
+## 🛠️ Instalation
+
+* **Using docker**: ```docker build -t meal-time```.
+* **Normal Installing**: ``` pip install -r requirements.txt ```.
+* **Installing with venv**: 
+```pyhon
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+## Instaling Ngrok
+
+* **Download from repo**: 
+    * ``` wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm.zip ```
+    * ``` wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.zip ```
+    * ``` wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip ```
+* **Unzip and Install**: ```unzip ngrok-*.zip``` ```sudo mv ngrok /usr/local/bin/```
+* **Configure the Token**: ```ngrok config add-authtoken TOKEN```
+* **Start the Server**: ```ngrok http 5000```
+
 ## 🔌 Hardware
 
 The system is designed to run on a microcontroller or single-board computer (for example, a Raspberry Pi).
@@ -68,7 +89,7 @@ Possible `POST` actions:
 
   * Validates that the password is not empty
   * Prevents reusing the previous password
-  * Stores the password as an MD5 hash
+  * Stores the password with bcrypt
 
 * **Feeding schedule update**
 
@@ -82,7 +103,7 @@ Possible `POST` actions:
 **Methods**: `GET`, `POST`
 
 * Displays the login form
-* Verifies the password using MD5 hashing
+* Verifies the password using bcrypt
 * Starts a user session (`logged_in = True`)
 
 ---
@@ -128,7 +149,7 @@ Useful for:
 ## 🔐 Security
 
 * Session-based authentication
-* Passwords stored as MD5 hashes
+* Passwords stored with bcrypt
 
 ---
 
@@ -137,6 +158,7 @@ Useful for:
 * Python 3
 * Flask
 * GPIO-compatible hardware
+* Bcrypt
 
 ---
 
