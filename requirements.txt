@@ -1,2 +1,3 @@
 gpiozero
 Flask
+bcrypt>=4.0.0

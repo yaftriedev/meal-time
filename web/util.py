@@ -1,17 +1,21 @@
 from config import password_md5_file, meal_time_file
 from datetime import datetime
-import hashlib
+import bcrypt
 
 def get_hour():
     """Return the current hour in HH:MM format."""
     
     return datetime.now().strftime("%H:%M:%S")
 
-def md5_hash(text):
+def hash_password(password):
     """Return the MD5 hash of the given text."""
-    return hashlib.md5(text.encode()).hexdigest()
+    return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-def get_stored_password_md5():
+def comprobe_password(plain_password, hashed_password):
+    """Check if the plain password matches the hashed password."""
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
+
+def get_stored_password():
     """Read and return the stored MD5 hashed password from the given file."""
     try:
         with open(password_md5_file, 'r') as f:

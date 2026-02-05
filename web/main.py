@@ -28,14 +28,14 @@ def main():
             if not new_password:
                 return render_template('index.html', error="Password cannot be empty")
             
-            if md5_hash(request.form.get('password', '')) == get_stored_password_md5():
+            if comprobe_password(request.form.get('password', ''), get_stored_password()):
                 return render_template('index.html', error="New password cannot be the same as the old password")
 
             # Only for debugging purposes, not recommended in production
             # print(f"New password received: {new_password}")
 
-            with open(password_md5_file, "w") as f:
-                f.write(md5_hash(new_password))
+            with open(password_file, "w") as f:
+                f.write(hash_password(new_password))
 
         if "meal_time" in request.form:
             print("Updating meal times...")
@@ -64,7 +64,7 @@ def loged():
 def login():
     if request.method == 'POST':
 
-        if md5_hash(request.form.get('password', '')) == get_stored_password_md5():
+        if comprobe_password(request.form.get('password', ''), get_stored_password()):
             session['logged_in'] = True
             return redirect(url_for('main'))
 
@@ -80,9 +80,9 @@ def logout():
 # Main entry point
 if __name__ == "__main__":
     # Create password file with default credentials if it doesn't exist
-    if not path.exists(password_md5_file):
-        with open(password_md5_file, "w") as f:
-            f.write(md5_hash(default_credentials))
+    if not path.exists(password_file):
+        with open(password_file, "w") as f:
+            f.write(hash_password(default_credentials))
 
     # Create meal time file with default times if it doesn't exist
     if not path.exists(meal_time_file):
