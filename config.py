@@ -14,7 +14,7 @@ meal_time_file = f"{project_route}/time.txt"
 password_md5_file = f"{project_route}/web/password"
 
 # Log file for the application
-log_file = f"{project_route}/logs/app.log"
+log_file = f"{project_route}/app.log"
 
 """ Application Settings """
 

@@ -24,7 +24,7 @@ def dispend(h):
 
     time.sleep(aditional_led_time)
 
-    lod.off()
+    led.off()
 
 # min -> closed
 # max -> open

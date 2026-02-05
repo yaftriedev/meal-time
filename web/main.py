@@ -87,7 +87,7 @@ if __name__ == "__main__":
     # Create meal time file with default times if it doesn't exist
     if not path.exists(meal_time_file):
         with open(meal_time_file, "w") as f:
-            f.write(meal_time_separator.join(default_meal_times))
+            f.write("")
 
     # Run the Flask app
     app.run(debug=debug_mode, host="0.0.0.0", port=app_port)
