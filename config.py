@@ -25,7 +25,7 @@ secret_key = "iInFsb59VTorKu2a7fV2d5sPkrE7ZdXsI3wYwqFiDcdtb84hX6"
 debug_mode = True
 
 # Application port
-app_port = 80
+app_port = 5000
 
 # Default password
 default_credentials = "admin123"

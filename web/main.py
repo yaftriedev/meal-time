@@ -31,11 +31,7 @@ def main():
             if comprobe_password(request.form.get('password', ''), get_stored_password()):
                 return render_template('index.html', error="New password cannot be the same as the old password")
 
-            # Only for debugging purposes, not recommended in production
-            # print(f"New password received: {new_password}")
-
-            with open(password_file, "w") as f:
-                f.write(hash_password(new_password))
+            store_password(hash_password(new_password))
 
         if "meal_time" in request.form:
             print("Updating meal times...")
@@ -81,8 +77,7 @@ def logout():
 if __name__ == "__main__":
     # Create password file with default credentials if it doesn't exist
     if not path.exists(password_file):
-        with open(password_file, "w") as f:
-            f.write(hash_password(default_credentials))
+        store_password(hash_password(default_credentials))
 
     # Create meal time file with default times if it doesn't exist
     if not path.exists(meal_time_file):

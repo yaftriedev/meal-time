@@ -1,4 +1,4 @@
-from config import password_md5_file, meal_time_file
+from config import password_file, meal_time_file
 from datetime import datetime
 import bcrypt
 
@@ -8,20 +8,27 @@ def get_hour():
     return datetime.now().strftime("%H:%M:%S")
 
 def hash_password(password):
-    """Return the MD5 hash of the given text."""
+    """Hash the given password using bcrypt and return the hashed password."""
     return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
 def comprobe_password(plain_password, hashed_password):
     """Check if the plain password matches the hashed password."""
-    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
+    if isinstance(hashed_password, str):
+        hashed_password = hashed_password.encode('utf-8')
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password)
 
 def get_stored_password():
-    """Read and return the stored MD5 hashed password from the given file."""
+    """Read and return the stored hashed password from the given file."""
     try:
-        with open(password_md5_file, 'r') as f:
-            return f.read().strip()
+        with open(password_file, 'rb') as f:
+            return f.read()
     except FileNotFoundError:
         return None
+
+def store_password(hashed_password):
+    """Store the hashed password in the given file."""
+    with open(password_file, 'wb') as f:
+        f.write(hashed_password)
 
 def get_meal_time():
     """Read and return the meal time from the given file."""
