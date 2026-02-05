@@ -11,7 +11,7 @@ project_route = Path(__file__).resolve().parent
 meal_time_file = f"{project_route}/time.txt"
 
 # File to store MD5 hashed password
-password_md5_file = f"{project_route}/web/password"
+password_file = f"{project_route}/web/password"
 
 # Log file for the application
 log_file = f"{project_route}/app.log"
