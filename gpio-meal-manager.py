@@ -12,7 +12,7 @@ actual_day = datetime.now().date()
 
 # Function to dispend
 def dispend(h):
-    with open(log_file, "w") as l:
+    with open(log_file, "a") as l:
         l.write(f"Dispensing meal at {h} on {datetime.now()}\n")
 
     servo.max()
