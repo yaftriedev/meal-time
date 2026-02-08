@@ -28,7 +28,7 @@ def main():
             if not new_password:
                 return render_template('index.html', error="Password cannot be empty")
             
-            if comprobe_password(request.form.get('password', ''), get_stored_password()):
+            if comprobe_password(request.form.get('password', '')):
                 return render_template('index.html', error="New password cannot be the same as the old password")
 
             store_password(hash_password(new_password))
@@ -60,7 +60,7 @@ def loged():
 def login():
     if request.method == 'POST':
 
-        if comprobe_password(request.form.get('password', ''), get_stored_password()):
+        if comprobe_password(request.form.get('password', '')):
             session['logged_in'] = True
             return redirect(url_for('main'))
 

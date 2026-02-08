@@ -11,11 +11,9 @@ def hash_password(password):
     """Hash the given password using bcrypt and return the hashed password."""
     return bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-def comprobe_password(plain_password, hashed_password):
+def comprobe_password(plain_password):
     """Check if the plain password matches the hashed password."""
-    if isinstance(hashed_password, str):
-        hashed_password = hashed_password.encode('utf-8')
-    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password)
+    return bcrypt.checkpw(plain_password.encode('utf-8'), get_stored_password())
 
 def get_stored_password():
     """Read and return the stored hashed password from the given file."""
