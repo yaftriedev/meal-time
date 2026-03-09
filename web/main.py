@@ -55,6 +55,10 @@ def status():
 def loged():
     return str(session.get('logged_in', False))
 
+@app.route('/sec', methods=['GET', 'POST'])
+def sec():
+    return redirect(f"https://{ngrok_url}")
+
 # Login/Logout route
 @app.route('/login', methods=['GET', 'POST'])
 def login():

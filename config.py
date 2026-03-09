@@ -31,7 +31,10 @@ app_port = 5000
 default_credentials = "admin123"
 
 # Endpoints that do not require login
-not_logged_endpoints = ('login', 'status', 'loged', 'static')
+not_logged_endpoints = ('login', 'status', 'loged', 'static', 'sec')
+
+# Ngrock Url
+ngrok_url = "tisa-potamic-tidily.ngrok-free.dev"
 
 """ Hardware PI Configuration and Other Settings """
 

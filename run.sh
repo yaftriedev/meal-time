@@ -15,8 +15,17 @@ export PYTHONPATH="$PYTHONPATH:$project_route"
 
 clear
 
+echo "Starting ngrok"
+ngrok_url="tisa-potamic-tidily.ngrok-free.dev"
+ngrok http 5000 --url=$ngrok_url --pooling-enabled > /dev/null 2>&1 &
+echo "Visit ngrok on: https://$ngrok_url"
+
 echo "Starting GPIO Meal Manager..."
 python3 $project_route/gpio-meal-manager.py &
 
 echo "Starting Main Application..."
 python3 $project_route/web/main.py
+
+echo "Kill ngrok?"
+read kill_ngrol
+sudo pkill ngrok
