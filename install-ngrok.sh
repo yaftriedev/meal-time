@@ -1,5 +1,5 @@
 sudo apt update && sudo apt upgrade -y
-sudo pip install Flask "bcrypt>=4.0.0"
+sudo pip install Flask "bcrypt>=4.0.0" gpiozero
 
 curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
   | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null \
