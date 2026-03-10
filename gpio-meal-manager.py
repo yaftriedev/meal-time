@@ -28,8 +28,13 @@ while True:
 
     # If day has changed, reload hours
     if now.date() != actual_day:
-        hours = get_meal_time_array
-        dia_actual = now.date()
+        hours = get_meal_time_array()
+        actual_day = now.date()
+
+    update_hours = get_meal_time_array()
+    for h in updated_hours:
+        if h not in hours:
+            hours.append(h)
 
     # Schedule meals
     scheduled_hours = [h for h in hours if 
