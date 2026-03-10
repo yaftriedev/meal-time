@@ -41,14 +41,14 @@ ngrok_url = "tisa-potamic-tidily.ngrok-free.dev"
 # Separator for meal times
 meal_time_separator = "\n"
 
-# GPIO PIN value for led
-gpio_pin_led = 1
-
 # GPIO PIN value for servo
-gpio_pin_servo = 2
+gpio_pin_servo = 14
+
+# Angle for not dispensing food (min)
+servo_min_angle = -1
+
+# Angle for dispensing food (max)
+servo_max_angle = 1
 
 # Time (s) dispending food
 dispending_time = 2
-
-# Aditional (s) on led time
-aditional_led_time = 3
