@@ -1,6 +1,7 @@
 import time
 from web.util import get_meal_time_array
 from datetime import datetime
+from gpiozero.pins.pigpio import PiGPIOFactory
 from gpiozero import Servo
 from config import *
 
