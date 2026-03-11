@@ -33,7 +33,7 @@ while True:
 
     update_hours = get_meal_time_array()
     for h in updated_hours:
-        if h not in hours:
+        if h not in hours and (h.hour, h.minute, h.second) > (now.hour, now.minute, now.second) :
             hours.append(h)
 
     # Schedule meals
