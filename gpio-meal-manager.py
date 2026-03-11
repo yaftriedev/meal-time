@@ -32,7 +32,7 @@ while True:
         hours = get_meal_time_array()
         actual_day = now.date()
 
-    update_hours = get_meal_time_array()
+    updated_hours = get_meal_time_array()
     for h in updated_hours:
         if h not in hours and if h - timedelta(minutes=2) <= now <= h + timedelta(minutes=2):
             hours.append(h)
