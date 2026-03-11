@@ -34,12 +34,11 @@ while True:
 
     update_hours = get_meal_time_array()
     for h in updated_hours:
-        if h not in hours and (h.hour, h.minute, h.second) > (now.hour, now.minute, now.second) :
+        if h not in hours and if h - timedelta(minutes=2) <= now <= h + timedelta(minutes=2):
             hours.append(h)
 
     # Schedule meals
-    scheduled_hours = [h for h in hours if 
-                       (now.hour, now.minute, now.second) >= (h.hour, h.minute, h.second)]
+    scheduled_hours = [h for h in hours if h - timedelta(hours=1) <= now <= h + timedelta(hours=1)]
 
     for h in scheduled_hours:
         dispend(h)
