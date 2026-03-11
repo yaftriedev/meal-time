@@ -15,6 +15,9 @@ export PYTHONPATH="$PYTHONPATH:$project_route"
 
 clear
 
+echo "Starting Pigpio"
+sudo pigpiod
+
 echo "Starting ngrok"
 ngrok_url="tisa-potamic-tidily.ngrok-free.dev"
 ngrok http 5000 --url=$ngrok_url --pooling-enabled > /dev/null 2>&1 &
@@ -26,6 +29,7 @@ python3 $project_route/gpio-meal-manager.py &
 echo "Starting Main Application..."
 python3 $project_route/web/main.py
 
-echo "Kill ngrok?"
-read kill_ngrol
+echo ""
+echo "Killing?"
 sudo pkill ngrok
+sudo pkill python3
