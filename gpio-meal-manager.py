@@ -1,6 +1,6 @@
 import time
 from web.util import get_meal_time_array
-from datetime import datetime
+from datetime import datetime, timedelta
 from gpiozero.pins.pigpio import PiGPIOFactory
 from gpiozero import Servo
 from config import *
@@ -10,6 +10,7 @@ servo = Servo(gpio_pin_servo, pin_factory=factory)
 
 hours = get_meal_time_array()
 actual_day = datetime.now().date()
+processed_hours = set()
 
 # Function to dispend
 def dispend(h):
@@ -27,21 +28,18 @@ servo.value = servo_min_angle
 while True:
     now = datetime.now()
 
-    # If day has changed, reload hours
+    # Si cambió el día, recargamos horas y reiniciamos procesados
     if now.date() != actual_day:
         hours = get_meal_time_array()
         actual_day = now.date()
+        processed_hours.clear()
 
-    updated_hours = get_meal_time_array()
-    for h in updated_hours:
-        if h not in hours and if h - timedelta(minutes=2) <= now <= h + timedelta(minutes=2):
-            hours.append(h)
-
-    # Schedule meals
-    scheduled_hours = [h for h in hours if h - timedelta(hours=1) <= now <= h + timedelta(hours=1)]
-
-    for h in scheduled_hours:
-        dispend(h)
-        hours.remove(h)
+    for h in hours:
+        h_dt = datetime.combine(datetime.today(), h)
+        
+        # Ejecutar solo una vez por hora
+        if h not in processed_hours and h_dt - timedelta(minutes=2) <= now <= h_dt + timedelta(minutes=2):
+            dispend(h)
+            processed_hours.add(h)
 
     time.sleep(1)
