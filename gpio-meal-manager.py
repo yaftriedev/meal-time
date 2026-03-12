@@ -17,9 +17,9 @@ def dispend(h):
     with open(log_file, "a") as l:
         l.write(f"Dispensing meal at {h} on {datetime.now()}\n")
 
-    servo.value = servo_min_angle
-    time.sleep(dispending_time)
     servo.value = servo_max_angle
+    time.sleep(dispending_time)
+    servo.value = servo_min_angle
 
 servo.value = servo_min_angle
 
