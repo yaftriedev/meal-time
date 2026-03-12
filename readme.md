@@ -154,3 +154,4 @@ Useful for:
 ## 📄 License
 
 Personal / educational project. Use at your own risk.
+This Project will be used for Galiciencia 2026:
