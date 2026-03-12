@@ -26,22 +26,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Instaling Ngrok
-
-* **Download from repo**: 
-    * ``` wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm.zip ```
-    * ``` wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.zip ```
-    * ``` wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip ```
-* **Unzip and Install**: ```unzip ngrok-*.zip``` ```sudo mv ngrok /usr/local/bin/```
-* **Configure the Token**: ```ngrok config add-authtoken TOKEN```
-* **Start the Server**: ```ngrok http 5000```
-
 ## 🔌 Hardware
 
 The system is designed to run on a microcontroller or single-board computer (for example, a Raspberry Pi).
 
-* **Light pin**: `1`
-* **Servo pin**: `2`
+* **Servo pin**: `14`
 
 > ⚠️ Update these values in the code according to your actual hardware setup.
 
