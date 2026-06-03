@@ -51,12 +51,12 @@ def get_meal_time_array():
         return []
 
 def format_time(time_text):
-    """Check if the time string is in HH:MM:SS format."""
+    """Check if the time string is in HH:MM format."""
     time_text = [i.replace(' ', '') for i in time_text.strip().splitlines()]
     try:
         for i in time_text:
-            hours, minutes, seconds = map(int, i.split(':'))
-            if not (0 <= hours < 24 and 0 <= minutes < 60 and 0 <= seconds < 60):
+            hours, minutes = map(int, i.split(':'))
+            if not (0 <= hours < 24 and 0 <= minutes < 60):
                 return [], False
         return time_text, True
     except ValueError:
