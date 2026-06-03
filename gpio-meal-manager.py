@@ -57,4 +57,4 @@ while True:
 
     check_and_dispense(hours, now, margin_minutes=2, catchup_hours=0)  # catchup=0 durante ejecución normal
 
-    time.sleep(1)
+    time.sleep(10)
