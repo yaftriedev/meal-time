@@ -1,6 +1,6 @@
 from config import password_file, meal_time_file
 from datetime import datetime
-import bcrypt
+import bcrypt, re
 
 def get_hour():
     """Return the current hour in HH:MM format."""
@@ -55,6 +55,8 @@ def format_time(time_text):
     time_text = [i.replace(' ', '') for i in time_text.strip().splitlines()]
     try:
         for i in time_text:
+            if not re.fullmatch(r"\d{2}:\d{2}", i):
+                return [], False
             hours, minutes = map(int, i.split(':'))
             if not (0 <= hours < 24 and 0 <= minutes < 60):
                 return [], False
