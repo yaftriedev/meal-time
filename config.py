@@ -45,10 +45,10 @@ meal_time_separator = "\n"
 gpio_pin_servo = 14
 
 # Angle for not dispensing food (min)
-servo_min_angle = -1
+servo_min_angle = 0.05
 
 # Angle for dispensing food (max)
-servo_max_angle = 1
+servo_max_angle = 0.6
 
 # Time (s) dispending food
 dispending_time = 2
